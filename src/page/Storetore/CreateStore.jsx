@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import '../../App.css';
 import { Button, Form, Input, Row, Col, Card, Select } from 'antd';
-import CreateStore from "../../Service/store/createStore";
+import CreateStore from "../../Service/store/createStore.js";
 
 const App = () => {
   const [form] = Form.useForm();
@@ -18,7 +18,7 @@ const App = () => {
   }
 
   const onFinish = (values) => {
-    CreateStore(values)
+    console.log(values)
     localStorage.setItem("store", JSON.stringify(values))
     alert("บันทึกสำเร็จ")
     window.location.href = "/"
@@ -49,11 +49,10 @@ const App = () => {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="on"
-            className='mt-5'
           >
             <Form.Item
               label="ชื่อร้านค้า"
-              name="store_name"
+              name="store"
               rules={[
                 {
                   required: true,
@@ -66,7 +65,7 @@ const App = () => {
 
             <Form.Item
               label="รายละเอียดร้านค้า"
-              name="description_store"
+              name="description"
               rules={[
                 {
                   required: true,

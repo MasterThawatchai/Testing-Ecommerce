@@ -18,8 +18,8 @@ function MyStore() {
                                     <img alt="" width={250} src={logo} />
                                 </Col>
                                 <Col xs={24} lg={18}style={{alignSelf:" center"}}>
-                                    <div>ร้านค้าของฉันชื่อ: <span style={{fontWeight: "600", color: "blue"}}>{data.store_name}</span></div><br/>
-                                    <div>รายละเอียดร้านค้า: <span style={{fontWeight: "600", color: "blue"}}>{data.description_store}</span></div><br/>
+                                    <div>ร้านค้าของฉันชื่อ: <span style={{fontWeight: "600", color: "blue"}}>{data.store}</span></div><br/>
+                                    <div>รายละเอียดร้านค้า: <span style={{fontWeight: "600", color: "blue"}}>{data.description}</span></div><br/>
                                     <div>หมวดหมู่ร้านค้า: <span style={{fontWeight: "600", color: "blue"}}>{data.category}</span></div>
                                 </Col>
                             </Row>

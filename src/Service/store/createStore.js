@@ -6,7 +6,7 @@ function CreateStore(values) {
         description: values.description
     }
 
-    if(data.store === "a" || data.categoty === "com" ||  data.description ==="รายละเอียด"){
+    if(data.store === "a"){
         data = {
             ...data,
             "the_best": true,
