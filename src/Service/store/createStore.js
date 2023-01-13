@@ -1,19 +1,19 @@
 
-function CreateStore(values) {
-    let data = {
-        categoty: values.categoty,
-        store: values.store,
-        description: values.description
-    }
+// function CreateStore(values) {
+//     let data = {
+//         categoty: values.categoty,
+//         store: values.store,
+//         description: values.description
+//     }
 
-    if(data.store === "a"){
-        data = {
-            ...data,
-            "the_best": true,
-        }
-    }
+//     if(data.store === "a"){
+//         data = {
+//             ...data,
+//             "the_best": true,
+//         }
+//     }
     
-    return data;
-}
+//     return data;
+// }
 
-module.exports = CreateStore;
+// module.exports = CreateStore;
