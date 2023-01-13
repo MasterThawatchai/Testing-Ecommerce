@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import { Breadcrumb, Layout, theme } from 'antd';
+import MyStore from "./page/Storetore/MyStore.jsx";
+import CreateStore from "./page/Storetore/CreateStore.jsx";
+import CreateProduct from "./page/Product/CreateProduct.jsx";
+import MyProduct from "./page/Product/MyProduct.jsx";
+import EditeProduct from "./page/Product/editProduct"
+import { Route, Routes, Link } from 'react-router-dom';
+const { Content } = Layout;
+const App = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
 
-function App() {
+  var test = localStorage.getItem("store")
+  const dataStore = JSON.parse(test)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className='App'>
+      <Layout className="layout">
+        <Content
+          style={{
+            padding: '0 50px',
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <Breadcrumb
+            style={{
+              margin: '16px 0',
+            }}
+          >
+            <Breadcrumb.Item><Link to="/">ร้านค้าของฉัน</Link></Breadcrumb.Item>
+            <Breadcrumb.Item><Link to="/create-store">
+              {
+                dataStore === null || dataStore.length ? "สร้างร้านค้า" : "อัปเดทร้านค้า"
+              }</Link></Breadcrumb.Item>
+            <Breadcrumb.Item><Link to="my-product">สินค้าของฉัน</Link></Breadcrumb.Item>
+          </Breadcrumb>
+        </Content>
+        <div
+          className="site-layout-content"
+          style={{
+            background: colorBgContainer,
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<MyStore />}>
+            </Route>
+            <Route path="/create-store" element={<CreateStore />}>
+            </Route>
+            <Route path="/create-product" element={<CreateProduct />}>
+            </Route>
+            <Route path="/my-product" element={<MyProduct />}>
+            </Route>
+            <Route path="/edite-product" element={<EditeProduct />}>
+            </Route>
+          </Routes>
+        </div>
+      </Layout>
+
     </div>
   );
-}
-
+};
 export default App;
